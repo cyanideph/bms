@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client"
 
 import { useState, useEffect } from "react"
@@ -43,6 +44,39 @@ export function RecentIncidents() {
       </div>
     )
   }
+=======
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
+
+export function RecentIncidents() {
+  const incidents = [
+    {
+      id: "INC-2024-023",
+      title: "Water Pipe Leak",
+      location: "Main Street, near Market",
+      date: "June 5, 2024",
+      status: "In Progress",
+      priority: "Medium",
+    },
+    {
+      id: "INC-2024-022",
+      title: "Fallen Electric Post",
+      location: "Rizal Avenue",
+      date: "June 4, 2024",
+      status: "New",
+      priority: "High",
+    },
+    {
+      id: "INC-2024-021",
+      title: "Garbage Collection Issue",
+      location: "Barangay Plaza",
+      date: "June 3, 2024",
+      status: "In Progress",
+      priority: "Low",
+    },
+  ]
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 
   return (
     <div className="space-y-4">
@@ -65,19 +99,30 @@ export function RecentIncidents() {
                 </Badge>
               </div>
               <div className="text-xs text-muted-foreground">
+<<<<<<< HEAD
                 {incident.location} • {new Date(incident.date?.toDate()).toLocaleDateString()}
+=======
+                {incident.location} • {incident.date}
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
               </div>
             </div>
             <Badge variant={incident.status === "New" ? "secondary" : "outline"}>{incident.status}</Badge>
           </div>
         ))}
       </div>
+<<<<<<< HEAD
       <Link href="/incidents">
         <Button variant="outline" className="w-full">
           View All Incidents
           <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </Link>
+=======
+      <Button variant="outline" className="w-full">
+        View All Incidents
+        <ArrowRight className="ml-2 h-4 w-4" />
+      </Button>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     </div>
   )
 }

@@ -32,10 +32,15 @@ import { Badge } from "@/components/ui/badge"
 import { Loader2, MoreHorizontal, Search, UserIcon, Shield, UserCog, UserCheck, UserX, Trash2 } from "lucide-react"
 import { format } from "date-fns"
 import type { DocumentSnapshot } from "firebase/firestore"
+<<<<<<< HEAD
 import { useToast } from "@/components/ui/use-toast"
 
 export function UserTable() {
   const { toast } = useToast()
+=======
+
+export function UserTable() {
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
   const [users, setUsers] = useState<User[]>([])
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState("")
@@ -62,11 +67,14 @@ export function UserTable() {
       setHasMore(newUsers.length === 10)
     } catch (error) {
       console.error("Error loading users:", error)
+<<<<<<< HEAD
       toast({
         title: "Error",
         description: "Failed to load users. Please try again.",
         variant: "destructive",
       })
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     } finally {
       setLoading(false)
     }
@@ -85,11 +93,14 @@ export function UserTable() {
       setHasMore(false)
     } catch (error) {
       console.error("Error searching users:", error)
+<<<<<<< HEAD
       toast({
         title: "Search Failed",
         description: "Failed to search users. Please try again.",
         variant: "destructive",
       })
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     } finally {
       setLoading(false)
     }
@@ -100,6 +111,7 @@ export function UserTable() {
     try {
       await updateUserRole(userId, newRole)
       setUsers((prevUsers) => prevUsers.map((user) => (user.uid === userId ? { ...user, role: newRole } : user)))
+<<<<<<< HEAD
       toast({
         title: "Role Updated",
         description: `User role has been updated to ${newRole}.`,
@@ -111,6 +123,10 @@ export function UserTable() {
         description: "Failed to update user role. Please try again.",
         variant: "destructive",
       })
+=======
+    } catch (error) {
+      console.error("Error updating user role:", error)
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     } finally {
       setActionLoading(null)
     }
@@ -121,6 +137,7 @@ export function UserTable() {
     try {
       await toggleUserStatus(userId, isActive)
       setUsers((prevUsers) => prevUsers.map((user) => (user.uid === userId ? { ...user, isActive } : user)))
+<<<<<<< HEAD
       toast({
         title: isActive ? "User Activated" : "User Deactivated",
         description: `User has been ${isActive ? "activated" : "deactivated"} successfully.`,
@@ -132,6 +149,10 @@ export function UserTable() {
         description: `Failed to ${isActive ? "activate" : "deactivate"} user. Please try again.`,
         variant: "destructive",
       })
+=======
+    } catch (error) {
+      console.error("Error toggling user status:", error)
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     } finally {
       setActionLoading(null)
     }
@@ -142,6 +163,7 @@ export function UserTable() {
     try {
       await deleteUser(userId)
       setUsers((prevUsers) => prevUsers.filter((user) => user.uid !== userId))
+<<<<<<< HEAD
       toast({
         title: "User Deleted",
         description: "User has been deleted successfully.",
@@ -153,6 +175,10 @@ export function UserTable() {
         description: "Failed to delete user. Please try again.",
         variant: "destructive",
       })
+=======
+    } catch (error) {
+      console.error("Error deleting user:", error)
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     } finally {
       setActionLoading(null)
     }

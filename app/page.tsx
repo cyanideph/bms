@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -47,5 +48,11 @@ export default function Home() {
       </FadeIn>
     </div>
   )
+=======
+import { redirect } from "next/navigation"
+
+export default function Home() {
+  redirect("/dashboard")
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 }
 

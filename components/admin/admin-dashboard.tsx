@@ -1,6 +1,9 @@
 "use client"
 
+<<<<<<< HEAD
 import { useState, useEffect } from "react"
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
@@ -16,8 +19,11 @@ import {
   ArrowRight,
   TrendingUp,
   TrendingDown,
+<<<<<<< HEAD
   Shield,
   Database,
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 } from "lucide-react"
 import { PageTransition } from "@/components/animations/page-transition"
 import { FadeIn } from "@/components/animations/fade-in"
@@ -25,6 +31,7 @@ import { SlideIn } from "@/components/animations/slide-in"
 import { StaggerContainer } from "@/components/animations/stagger-container"
 import { StaggerItem } from "@/components/animations/stagger-item"
 import { AnimatedCounter } from "@/components/animations/animated-counter"
+<<<<<<< HEAD
 import { countUsersByRole } from "@/lib/firebase/users"
 import { countResidents } from "@/lib/firebase/services/resident-service"
 import { countPermitsByStatus } from "@/lib/firebase/services/permit-service"
@@ -109,6 +116,14 @@ export function AdminDashboard() {
     })
   }
 
+=======
+import Link from "next/link"
+
+import { ResidentAnalytics } from "@/components/admin/analytics/resident-analytics"
+import { UserActivityAnalytics } from "@/components/admin/analytics/user-activity-analytics"
+
+export function AdminDashboard() {
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
   return (
     <PageTransition>
       <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
@@ -121,6 +136,7 @@ export function AdminDashboard() {
               </p>
             </div>
             <div className="flex items-center gap-2">
+<<<<<<< HEAD
               <Button variant="outline" size="icon" onClick={handleUpdateSettings}>
                 <Settings className="h-4 w-4" />
               </Button>
@@ -129,6 +145,14 @@ export function AdminDashboard() {
                   <Bell className="h-4 w-4" />
                 </Button>
               </Link>
+=======
+              <Button variant="outline" size="icon">
+                <Settings className="h-4 w-4" />
+              </Button>
+              <Button variant="outline" size="icon">
+                <Bell className="h-4 w-4" />
+              </Button>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
             </div>
           </div>
         </FadeIn>
@@ -141,6 +165,7 @@ export function AdminDashboard() {
                 <Users className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
+<<<<<<< HEAD
                 {loading ? (
                   <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary border-t-transparent" />
                 ) : (
@@ -155,6 +180,16 @@ export function AdminDashboard() {
                     </div>
                   </>
                 )}
+=======
+                <div className="text-2xl font-bold">
+                  <AnimatedCounter to={100} />
+                </div>
+                <div className="flex items-center text-xs text-muted-foreground">
+                  <TrendingUp className="mr-1 h-3 w-3 text-green-500" />
+                  <span className="text-green-500 font-medium">+5.2%</span>
+                  <span className="ml-1">from last month</span>
+                </div>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
               </CardContent>
             </Card>
             <Card className="border-l-4 border-l-secondary">
@@ -163,6 +198,7 @@ export function AdminDashboard() {
                 <Activity className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
+<<<<<<< HEAD
                 {loading ? (
                   <div className="h-8 w-8 animate-spin rounded-full border-2 border-secondary border-t-transparent" />
                 ) : (
@@ -177,6 +213,16 @@ export function AdminDashboard() {
                     </div>
                   </>
                 )}
+=======
+                <div className="text-2xl font-bold">
+                  <AnimatedCounter to={24} />
+                </div>
+                <div className="flex items-center text-xs text-muted-foreground">
+                  <TrendingUp className="mr-1 h-3 w-3 text-green-500" />
+                  <span className="text-green-500 font-medium">+12.5%</span>
+                  <span className="ml-1">from yesterday</span>
+                </div>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
               </CardContent>
             </Card>
             <Card className="border-l-4 border-l-accent">
@@ -185,6 +231,7 @@ export function AdminDashboard() {
                 <BarChart className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
+<<<<<<< HEAD
                 {loading ? (
                   <div className="h-8 w-8 animate-spin rounded-full border-2 border-accent border-t-transparent" />
                 ) : (
@@ -197,6 +244,14 @@ export function AdminDashboard() {
                     </div>
                   </>
                 )}
+=======
+                <div className="text-2xl font-bold">99.9%</div>
+                <div className="flex items-center text-xs text-muted-foreground">
+                  <TrendingUp className="mr-1 h-3 w-3 text-green-500" />
+                  <span className="text-green-500 font-medium">+0.1%</span>
+                  <span className="ml-1">from last week</span>
+                </div>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
               </CardContent>
             </Card>
             <Card className="border-l-4 border-l-destructive">
@@ -205,6 +260,7 @@ export function AdminDashboard() {
                 <AlertTriangle className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
+<<<<<<< HEAD
                 {loading ? (
                   <div className="h-8 w-8 animate-spin rounded-full border-2 border-destructive border-t-transparent" />
                 ) : (
@@ -217,6 +273,14 @@ export function AdminDashboard() {
                     </div>
                   </>
                 )}
+=======
+                <div className="text-2xl font-bold">0.02%</div>
+                <div className="flex items-center text-xs text-muted-foreground">
+                  <TrendingDown className="mr-1 h-3 w-3 text-green-500 rotate-180" />
+                  <span className="text-green-500 font-medium">-0.5%</span>
+                  <span className="ml-1">from last month</span>
+                </div>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
               </CardContent>
             </Card>
           </div>
@@ -236,6 +300,7 @@ export function AdminDashboard() {
                 <StaggerItem>
                   <Card>
                     <CardHeader className="pb-2">
+<<<<<<< HEAD
                       <CardTitle>User Distribution</CardTitle>
                       <CardDescription>Breakdown of user accounts by role</CardDescription>
                     </CardHeader>
@@ -277,12 +342,20 @@ export function AdminDashboard() {
                           </div>
                         </div>
                       )}
+=======
+                      <CardTitle>User Activity</CardTitle>
+                      <CardDescription>Recent user logins and actions</CardDescription>
+                    </CardHeader>
+                    <CardContent className="h-80">
+                      <UserActivityAnalytics />
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                     </CardContent>
                   </Card>
                 </StaggerItem>
                 <StaggerItem>
                   <Card>
                     <CardHeader className="pb-2">
+<<<<<<< HEAD
                       <CardTitle>System Status</CardTitle>
                       <CardDescription>Current system performance metrics</CardDescription>
                     </CardHeader>
@@ -322,6 +395,13 @@ export function AdminDashboard() {
                           </div>
                         </div>
                       )}
+=======
+                      <CardTitle>System Performance</CardTitle>
+                      <CardDescription>Server load and response times</CardDescription>
+                    </CardHeader>
+                    <CardContent className="h-80">
+                      <ResidentAnalytics />
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                     </CardContent>
                   </Card>
                 </StaggerItem>
@@ -339,6 +419,7 @@ export function AdminDashboard() {
                             <ArrowRight className="h-4 w-4" />
                           </Button>
                         </Link>
+<<<<<<< HEAD
                         <Link href="/admin/users">
                           <Button variant="outline" className="w-full justify-between">
                             Manage User Accounts
@@ -354,6 +435,21 @@ export function AdminDashboard() {
                           <ArrowRight className="h-4 w-4" />
                         </Button>
                         <Button variant="outline" className="w-full justify-between" onClick={handleUpdateSettings}>
+=======
+                        <Button variant="outline" className="w-full justify-between">
+                          Manage User Accounts
+                          <ArrowRight className="h-4 w-4" />
+                        </Button>
+                        <Button variant="outline" className="w-full justify-between">
+                          System Backup
+                          <ArrowRight className="h-4 w-4" />
+                        </Button>
+                        <Button variant="outline" className="w-full justify-between">
+                          Error Logs
+                          <ArrowRight className="h-4 w-4" />
+                        </Button>
+                        <Button variant="outline" className="w-full justify-between">
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                           Update System Settings
                           <ArrowRight className="h-4 w-4" />
                         </Button>
@@ -366,6 +462,7 @@ export function AdminDashboard() {
 
             <Card>
               <CardHeader>
+<<<<<<< HEAD
                 <CardTitle>System Overview</CardTitle>
                 <CardDescription>Key metrics from across the system</CardDescription>
               </CardHeader>
@@ -443,6 +540,8 @@ export function AdminDashboard() {
 
             <Card>
               <CardHeader>
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                 <CardTitle>Recent System Activity</CardTitle>
                 <CardDescription>Latest actions performed in the system</CardDescription>
               </CardHeader>
@@ -530,12 +629,16 @@ export function AdminDashboard() {
               </CardHeader>
               <CardContent>
                 <div className="flex justify-center py-10">
+<<<<<<< HEAD
                   <Link href="/admin/users">
                     <Button>
                       <Users className="mr-2 h-4 w-4" />
                       Go to User Management
                     </Button>
                   </Link>
+=======
+                  <p className="text-muted-foreground">User management interface coming soon</p>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                 </div>
               </CardContent>
             </Card>
@@ -548,6 +651,7 @@ export function AdminDashboard() {
                 <CardDescription>Configure system-wide settings and preferences</CardDescription>
               </CardHeader>
               <CardContent>
+<<<<<<< HEAD
                 <div className="space-y-4">
                   <div className="grid gap-4 md:grid-cols-2">
                     <div>
@@ -605,6 +709,10 @@ export function AdminDashboard() {
                       </Link>
                     </div>
                   </div>
+=======
+                <div className="flex justify-center py-10">
+                  <p className="text-muted-foreground">System settings interface coming soon</p>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                 </div>
               </CardContent>
             </Card>

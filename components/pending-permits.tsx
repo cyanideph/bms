@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client"
 
 import { useState, useEffect } from "react"
@@ -58,6 +59,43 @@ export function PendingPermits() {
       </div>
     )
   }
+=======
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
+
+export function PendingPermits() {
+  const permits = [
+    {
+      id: "P-2024-056",
+      type: "Barangay Clearance",
+      applicant: "Juan Dela Cruz",
+      date: "June 5, 2024",
+      status: "Pending",
+    },
+    {
+      id: "P-2024-055",
+      type: "Business Permit",
+      applicant: "Maria Garcia",
+      date: "June 4, 2024",
+      status: "Under Review",
+    },
+    {
+      id: "P-2024-054",
+      type: "Residency Certificate",
+      applicant: "Roberto Santos",
+      date: "June 3, 2024",
+      status: "Pending",
+    },
+    {
+      id: "P-2024-053",
+      type: "Barangay Clearance",
+      applicant: "Elena Reyes",
+      date: "June 2, 2024",
+      status: "Under Review",
+    },
+  ]
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 
   return (
     <div className="space-y-4">
@@ -70,6 +108,7 @@ export function PendingPermits() {
                 <Badge variant={permit.status === "Pending" ? "outline" : "secondary"}>{permit.status}</Badge>
               </div>
               <div className="text-xs text-muted-foreground">
+<<<<<<< HEAD
                 {permit.applicant} • {formatDate(permit.dateApplied)}
               </div>
             </div>
@@ -83,10 +122,24 @@ export function PendingPermits() {
           <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </Link>
+=======
+                {permit.applicant} • {permit.date}
+              </div>
+            </div>
+            <div className="text-xs font-medium">{permit.id}</div>
+          </div>
+        ))}
+      </div>
+      <Button variant="outline" className="w-full">
+        View All Permits
+        <ArrowRight className="ml-2 h-4 w-4" />
+      </Button>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     </div>
   )
 }
 
+<<<<<<< HEAD
 // Helper function to safely format dates from Firestore
 function formatDate(date: any): string {
   if (!date) return "Unknown date"
@@ -110,3 +163,5 @@ function formatDate(date: any): string {
   }
 }
 
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5

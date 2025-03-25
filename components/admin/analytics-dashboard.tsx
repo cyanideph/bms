@@ -1,6 +1,10 @@
 "use client"
 
+<<<<<<< HEAD
 import { useState, useEffect } from "react"
+=======
+import { useState } from "react"
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
@@ -18,26 +22,37 @@ import {
   AlertTriangle,
   FileCheck,
   TrendingUp,
+<<<<<<< HEAD
   Loader2,
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 } from "lucide-react"
 import { PageTransition } from "@/components/animations/page-transition"
 import { FadeIn } from "@/components/animations/fade-in"
 import { SlideIn } from "@/components/animations/slide-in"
 import { StaggerContainer } from "@/components/animations/stagger-container"
 import { StaggerItem } from "@/components/animations/stagger-item"
+<<<<<<< HEAD
 import { useToast } from "@/components/ui/use-toast"
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 
 import { ResidentAnalytics } from "@/components/admin/analytics/resident-analytics"
 import { PermitAnalytics } from "@/components/admin/analytics/permit-analytics"
 import { IncidentAnalytics } from "@/components/admin/analytics/incident-analytics"
 import { UserActivityAnalytics } from "@/components/admin/analytics/user-activity-analytics"
 import { ReportGenerator } from "@/components/admin/report-generator"
+<<<<<<< HEAD
 import { countResidents } from "@/lib/firebase/services/resident-service"
 import { countPermitsByStatus } from "@/lib/firebase/services/permit-service"
 import { countIncidentsByStatus } from "@/lib/firebase/services/incident-service"
 
 export function AnalyticsDashboard() {
   const { toast } = useToast()
+=======
+
+export function AnalyticsDashboard() {
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
   const [date, setDate] = useState<Date | undefined>(new Date())
   const [dateRange, setDateRange] = useState<{
     from: Date | undefined
@@ -46,6 +61,7 @@ export function AnalyticsDashboard() {
     from: new Date(new Date().setDate(new Date().getDate() - 30)),
     to: new Date(),
   })
+<<<<<<< HEAD
   const [loading, setLoading] = useState(true)
   const [stats, setStats] = useState({
     totalResidents: 0,
@@ -131,6 +147,8 @@ export function AnalyticsDashboard() {
       })
     }, 2000)
   }
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 
   return (
     <PageTransition>
@@ -176,6 +194,7 @@ export function AnalyticsDashboard() {
                       </Select>
                     </div>
                     <div className="flex justify-end">
+<<<<<<< HEAD
                       <Button
                         size="sm"
                         onClick={() => {
@@ -187,14 +206,24 @@ export function AnalyticsDashboard() {
                       >
                         Apply Filters
                       </Button>
+=======
+                      <Button size="sm">Apply Filters</Button>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                     </div>
                   </div>
                 </PopoverContent>
               </Popover>
+<<<<<<< HEAD
               <Button variant="outline" size="icon" onClick={handleRefresh}>
                 <RefreshCw className="h-4 w-4" />
               </Button>
               <Button variant="outline" className="flex items-center gap-2" onClick={handleExport}>
+=======
+              <Button variant="outline" size="icon">
+                <RefreshCw className="h-4 w-4" />
+              </Button>
+              <Button variant="outline" className="flex items-center gap-2">
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                 <FileDown className="h-4 w-4" />
                 <span className="hidden sm:inline">Export</span>
               </Button>
@@ -210,6 +239,7 @@ export function AnalyticsDashboard() {
                 <Users className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
+<<<<<<< HEAD
                 {loading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
@@ -222,6 +252,14 @@ export function AnalyticsDashboard() {
                     </div>
                   </>
                 )}
+=======
+                <div className="text-2xl font-bold">1,247</div>
+                <div className="flex items-center text-xs text-muted-foreground">
+                  <TrendingUp className="mr-1 h-3 w-3 text-green-500" />
+                  <span className="text-green-500 font-medium">+3.2%</span>
+                  <span className="ml-1">from last month</span>
+                </div>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
               </CardContent>
             </Card>
             <Card className="border-l-4 border-l-secondary">
@@ -230,6 +268,7 @@ export function AnalyticsDashboard() {
                 <FileCheck className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
+<<<<<<< HEAD
                 {loading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
@@ -242,6 +281,14 @@ export function AnalyticsDashboard() {
                     </div>
                   </>
                 )}
+=======
+                <div className="text-2xl font-bold">342</div>
+                <div className="flex items-center text-xs text-muted-foreground">
+                  <TrendingUp className="mr-1 h-3 w-3 text-green-500" />
+                  <span className="text-green-500 font-medium">+12.5%</span>
+                  <span className="ml-1">from last month</span>
+                </div>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
               </CardContent>
             </Card>
             <Card className="border-l-4 border-l-accent">
@@ -250,6 +297,7 @@ export function AnalyticsDashboard() {
                 <CalendarDays className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
+<<<<<<< HEAD
                 {loading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
@@ -262,6 +310,14 @@ export function AnalyticsDashboard() {
                     </div>
                   </>
                 )}
+=======
+                <div className="text-2xl font-bold">24</div>
+                <div className="flex items-center text-xs text-muted-foreground">
+                  <TrendingUp className="mr-1 h-3 w-3 text-green-500" />
+                  <span className="text-green-500 font-medium">+4.1%</span>
+                  <span className="ml-1">from last month</span>
+                </div>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
               </CardContent>
             </Card>
             <Card className="border-l-4 border-l-destructive">
@@ -270,6 +326,7 @@ export function AnalyticsDashboard() {
                 <AlertTriangle className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
+<<<<<<< HEAD
                 {loading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
@@ -282,6 +339,14 @@ export function AnalyticsDashboard() {
                     </div>
                   </>
                 )}
+=======
+                <div className="text-2xl font-bold">87</div>
+                <div className="flex items-center text-xs text-muted-foreground">
+                  <TrendingUp className="mr-1 h-3 w-3 text-red-500 rotate-180" />
+                  <span className="text-red-500 font-medium">-2.3%</span>
+                  <span className="ml-1">from last month</span>
+                </div>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
               </CardContent>
             </Card>
           </div>

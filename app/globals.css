@@ -112,6 +112,7 @@
   @apply text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent;
 }
 
+<<<<<<< HEAD
 /* Animated gradient background */
 .animated-gradient {
   background: linear-gradient(
@@ -136,6 +137,8 @@
   }
 }
 
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .container {

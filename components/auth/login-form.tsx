@@ -4,29 +4,43 @@ import type React from "react"
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+<<<<<<< HEAD
 import { signIn, createTestUser } from "@/lib/firebase/auth"
+=======
+import { signIn } from "@/lib/firebase/auth"
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
+<<<<<<< HEAD
 import { AlertCircle, Loader2, Info } from "lucide-react"
 import Link from "next/link"
 import { useToast } from "@/components/ui/use-toast"
+=======
+import { AlertCircle, Loader2 } from "lucide-react"
+import Link from "next/link"
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 
 export function LoginForm() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
+<<<<<<< HEAD
   const [testUserLoading, setTestUserLoading] = useState(false)
   const [showDevTools, setShowDevTools] = useState(false)
   const router = useRouter()
   const { toast } = useToast()
+=======
+  const router = useRouter()
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError(null)
+<<<<<<< HEAD
 
     // Validate inputs
     if (!email.trim()) {
@@ -39,6 +53,8 @@ export function LoginForm() {
       return
     }
 
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     setLoading(true)
 
     try {
@@ -46,12 +62,25 @@ export function LoginForm() {
       router.push("/dashboard")
     } catch (err: any) {
       console.error("Login error:", err)
+<<<<<<< HEAD
       setError(err.message || "An error occurred during login. Please try again.")
+=======
+
+      // Handle different Firebase auth errors
+      if (err.code === "auth/user-not-found" || err.code === "auth/wrong-password") {
+        setError("Invalid email or password. Please try again.")
+      } else if (err.code === "auth/too-many-requests") {
+        setError("Too many failed login attempts. Please try again later.")
+      } else {
+        setError("An error occurred during login. Please try again.")
+      }
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     } finally {
       setLoading(false)
     }
   }
 
+<<<<<<< HEAD
   const handleCreateTestUser = async () => {
     setTestUserLoading(true)
     setError(null)
@@ -74,6 +103,8 @@ export function LoginForm() {
     }
   }
 
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
@@ -129,6 +160,7 @@ export function LoginForm() {
             )}
           </Button>
         </form>
+<<<<<<< HEAD
 
         <div className="mt-6">
           <Button
@@ -172,6 +204,8 @@ export function LoginForm() {
             </div>
           )}
         </div>
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
       </CardContent>
       <CardFooter className="flex justify-center">
         <p className="text-sm text-muted-foreground">

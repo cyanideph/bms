@@ -1,8 +1,12 @@
 "use client"
 
+<<<<<<< HEAD
 import type React from "react"
 
 import { useState, useEffect } from "react"
+=======
+import { useState } from "react"
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
@@ -25,6 +29,7 @@ import {
 } from "@/components/ui/dialog"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
+<<<<<<< HEAD
 import { Search, Plus, MoreHorizontal, FileUp, FileDown, Edit, Trash2, Eye, Loader2 } from "lucide-react"
 import { getResidents, searchResidents, addResident, deleteResident } from "@/lib/firebase/services/resident-service"
 import type { Resident } from "@/lib/firebase/collections"
@@ -42,10 +47,14 @@ import {
 import { toast } from "@/components/ui/use-toast"
 import { useAuth } from "@/contexts/auth-context"
 import type { DocumentSnapshot } from "firebase/firestore"
+=======
+import { Search, Plus, MoreHorizontal, FileUp, FileDown, Edit, Trash2, Eye } from "lucide-react"
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 
 export function ResidentRecordsPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [filter, setFilter] = useState("all")
+<<<<<<< HEAD
   const [residents, setResidents] = useState<Resident[]>([])
   const [loading, setLoading] = useState(true)
   const [lastVisible, setLastVisible] = useState<DocumentSnapshot | null>(null)
@@ -198,6 +207,76 @@ export function ResidentRecordsPage() {
   // Filter residents based on search term
   const filteredResidents = residents
 
+=======
+
+  // Mock data for residents
+  const residents = [
+    {
+      id: "R-2024-001",
+      name: "Juan Dela Cruz",
+      address: "123 Main St., Purok 1",
+      birthdate: "1985-05-15",
+      contact: "09123456789",
+      gender: "Male",
+      civilStatus: "Married",
+      occupation: "Farmer",
+    },
+    {
+      id: "R-2024-002",
+      name: "Maria Santos",
+      address: "456 Rizal Ave., Purok 2",
+      birthdate: "1990-10-20",
+      contact: "09234567890",
+      gender: "Female",
+      civilStatus: "Single",
+      occupation: "Teacher",
+    },
+    {
+      id: "R-2024-003",
+      name: "Pedro Reyes",
+      address: "789 Mabini St., Purok 3",
+      birthdate: "1978-03-08",
+      contact: "09345678901",
+      gender: "Male",
+      civilStatus: "Married",
+      occupation: "Fisherman",
+    },
+    {
+      id: "R-2024-004",
+      name: "Elena Garcia",
+      address: "101 Bonifacio St., Purok 1",
+      birthdate: "1995-12-25",
+      contact: "09456789012",
+      gender: "Female",
+      civilStatus: "Single",
+      occupation: "Nurse",
+    },
+    {
+      id: "R-2024-005",
+      name: "Roberto Lim",
+      address: "202 Aguinaldo St., Purok 4",
+      birthdate: "1982-07-30",
+      contact: "09567890123",
+      gender: "Male",
+      civilStatus: "Married",
+      occupation: "Driver",
+    },
+  ]
+
+  // Filter and search residents
+  const filteredResidents = residents.filter((resident) => {
+    const matchesSearch =
+      resident.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      resident.address.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      resident.id.toLowerCase().includes(searchTerm.toLowerCase())
+
+    if (filter === "all") return matchesSearch
+    if (filter === "male") return matchesSearch && resident.gender === "Male"
+    if (filter === "female") return matchesSearch && resident.gender === "Female"
+    return matchesSearch
+  })
+
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
   return (
     <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
       <div className="flex items-center justify-between">
@@ -228,14 +307,21 @@ export function ResidentRecordsPage() {
               <DropdownMenuItem>Import from Excel</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+<<<<<<< HEAD
           <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
             <DialogTrigger asChild>
               <Button disabled={!hasPermission("canManageResidents")}>
+=======
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                 <Plus className="mr-2 h-4 w-4" />
                 Add Resident
               </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[600px]">
+<<<<<<< HEAD
               <form onSubmit={handleSubmit}>
                 <DialogHeader>
                   <DialogTitle>Add New Resident</DialogTitle>
@@ -359,6 +445,75 @@ export function ResidentRecordsPage() {
                   </Button>
                 </DialogFooter>
               </form>
+=======
+              <DialogHeader>
+                <DialogTitle>Add New Resident</DialogTitle>
+                <DialogDescription>
+                  Enter the details of the new resident. Click save when you're done.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="grid gap-4 py-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="firstName">First Name</Label>
+                    <Input id="firstName" placeholder="First Name" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="lastName">Last Name</Label>
+                    <Input id="lastName" placeholder="Last Name" />
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="birthdate">Birthdate</Label>
+                    <Input id="birthdate" type="date" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="gender">Gender</Label>
+                    <Select>
+                      <SelectTrigger id="gender">
+                        <SelectValue placeholder="Select gender" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="male">Male</SelectItem>
+                        <SelectItem value="female">Female</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="address">Address</Label>
+                  <Input id="address" placeholder="Complete Address" />
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="contact">Contact Number</Label>
+                    <Input id="contact" placeholder="Contact Number" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="civilStatus">Civil Status</Label>
+                    <Select>
+                      <SelectTrigger id="civilStatus">
+                        <SelectValue placeholder="Select status" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="single">Single</SelectItem>
+                        <SelectItem value="married">Married</SelectItem>
+                        <SelectItem value="widowed">Widowed</SelectItem>
+                        <SelectItem value="separated">Separated</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="occupation">Occupation</Label>
+                  <Input id="occupation" placeholder="Occupation" />
+                </div>
+              </div>
+              <DialogFooter>
+                <Button type="submit">Save Resident</Button>
+              </DialogFooter>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
             </DialogContent>
           </Dialog>
         </div>
@@ -371,18 +526,28 @@ export function ResidentRecordsPage() {
             className="pl-8"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+<<<<<<< HEAD
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
           />
         </div>
         <Button onClick={handleSearch}>Search</Button>
+=======
+          />
+        </div>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
         <Select value={filter} onValueChange={setFilter}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Filter by" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All Residents</SelectItem>
+<<<<<<< HEAD
             <SelectItem value="Male">Male</SelectItem>
             <SelectItem value="Female">Female</SelectItem>
+=======
+            <SelectItem value="male">Male</SelectItem>
+            <SelectItem value="female">Female</SelectItem>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
           </SelectContent>
         </Select>
       </div>
@@ -400,6 +565,7 @@ export function ResidentRecordsPage() {
             </TableRow>
           </TableHeader>
           <TableBody>
+<<<<<<< HEAD
             {loading && residents.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={7} className="text-center py-10">
@@ -410,6 +576,9 @@ export function ResidentRecordsPage() {
                 </TableCell>
               </TableRow>
             ) : filteredResidents.length === 0 ? (
+=======
+            {filteredResidents.length === 0 ? (
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
               <TableRow>
                 <TableCell colSpan={7} className="text-center">
                   No residents found
@@ -418,7 +587,11 @@ export function ResidentRecordsPage() {
             ) : (
               filteredResidents.map((resident) => (
                 <TableRow key={resident.id}>
+<<<<<<< HEAD
                   <TableCell className="font-medium">{resident.residentId}</TableCell>
+=======
+                  <TableCell className="font-medium">{resident.id}</TableCell>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                   <TableCell>{resident.name}</TableCell>
                   <TableCell className="hidden md:table-cell">{resident.address}</TableCell>
                   <TableCell className="hidden md:table-cell">{resident.contact}</TableCell>
@@ -438,11 +611,16 @@ export function ResidentRecordsPage() {
                           <Eye className="mr-2 h-4 w-4" />
                           View Details
                         </DropdownMenuItem>
+<<<<<<< HEAD
                         <DropdownMenuItem disabled={!hasPermission("canManageResidents")}>
+=======
+                        <DropdownMenuItem>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                           <Edit className="mr-2 h-4 w-4" />
                           Edit Resident
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
+<<<<<<< HEAD
                         <AlertDialog>
                           <AlertDialogTrigger asChild>
                             <DropdownMenuItem
@@ -473,6 +651,12 @@ export function ResidentRecordsPage() {
                             </AlertDialogFooter>
                           </AlertDialogContent>
                         </AlertDialog>
+=======
+                        <DropdownMenuItem className="text-destructive">
+                          <Trash2 className="mr-2 h-4 w-4" />
+                          Delete Resident
+                        </DropdownMenuItem>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </TableCell>
@@ -482,6 +666,7 @@ export function ResidentRecordsPage() {
           </TableBody>
         </Table>
       </div>
+<<<<<<< HEAD
 
       {hasMore && !loading && (
         <div className="flex justify-center mt-4">
@@ -497,6 +682,8 @@ export function ResidentRecordsPage() {
           </Button>
         </div>
       )}
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     </div>
   )
 }
