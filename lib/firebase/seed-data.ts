@@ -1,10 +1,7 @@
 import { registerUser } from "./auth"
-<<<<<<< HEAD
 import { db } from "./config"
 import { collection, addDoc, serverTimestamp } from "firebase/firestore"
 import { COLLECTIONS } from "./collections"
-=======
->>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 
 // Function to seed the database with mock users
 export const seedUsers = async () => {
@@ -32,7 +29,6 @@ export const seedUsers = async () => {
   }
 }
 
-<<<<<<< HEAD
 // Sample data for announcements
 const announcementData = [
   {
@@ -142,5 +138,3 @@ export const seedAllData = async () => {
   }
 }
 
-=======
->>>>>>> d654815b261a7f3a423f12d0044308792fa218a5

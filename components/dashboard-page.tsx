@@ -1,10 +1,18 @@
 "use client"
 
+<<<<<<< HEAD
+import { useState, useEffect } from "react"
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 import { useIsMobile } from "@/hooks/use-mobile"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+<<<<<<< HEAD
+import { CalendarDays, FileText, Users, Bell, AlertTriangle, ArrowRight, Loader2 } from "lucide-react"
+=======
 import { CalendarDays, FileText, Users, Bell, AlertTriangle, ArrowRight } from "lucide-react"
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 import { RecentAnnouncements } from "@/components/recent-announcements"
 import { PendingPermits } from "@/components/pending-permits"
 import { RecentIncidents } from "@/components/recent-incidents"
@@ -17,10 +25,69 @@ import { AnimatedCounter } from "@/components/animations/animated-counter"
 import { AnimatedGradient } from "@/components/animations/animated-gradient"
 import { AnimatedButton } from "@/components/animations/animated-button"
 import { PageTransition } from "@/components/animations/page-transition"
+<<<<<<< HEAD
+import { countResidents } from "@/lib/firebase/services/resident-service"
+import { countPermitsByStatus } from "@/lib/firebase/services/permit-service"
+import { countIncidentsByStatus, countIncidentsByPriority } from "@/lib/firebase/services/incident-service"
+import { getAnnouncementsAndEvents } from "@/lib/firebase/services/announcement-service"
+import Image from "next/image"
+import Link from "next/link"
+
+export function DashboardPage() {
+  const isMobile = useIsMobile()
+  const [loading, setLoading] = useState(true)
+  const [stats, setStats] = useState({
+    totalResidents: 0,
+    pendingPermits: 0,
+    upcomingEvents: 0,
+    activeIncidents: 0,
+    highPriorityIncidents: 0,
+  })
+
+  useEffect(() => {
+    const fetchDashboardData = async () => {
+      setLoading(true)
+      try {
+        // Fetch counts in parallel
+        const [totalResidents, permitCounts, incidentStatusCounts, incidentPriorityCounts, eventsResult] =
+          await Promise.all([
+            countResidents(),
+            countPermitsByStatus(),
+            countIncidentsByStatus(),
+            countIncidentsByPriority(),
+            getAnnouncementsAndEvents(null, 10),
+          ])
+
+        // Calculate upcoming events (events with future dates)
+        const upcomingEvents = eventsResult.items.filter(
+          (item) => item.type === "event" && new Date(item.eventDate) > new Date(),
+        ).length
+
+        // Calculate active incidents (New + In Progress)
+        const activeIncidents = (incidentStatusCounts["New"] || 0) + (incidentStatusCounts["In Progress"] || 0)
+
+        setStats({
+          totalResidents,
+          pendingPermits: (permitCounts["Pending"] || 0) + (permitCounts["Under Review"] || 0),
+          upcomingEvents,
+          activeIncidents,
+          highPriorityIncidents: incidentPriorityCounts["High"] || 0,
+        })
+      } catch (error) {
+        console.error("Error fetching dashboard data:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchDashboardData()
+  }, [])
+=======
 import Image from "next/image"
 
 export function DashboardPage() {
   const isMobile = useIsMobile()
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 
   return (
     <PageTransition>
@@ -43,10 +110,19 @@ export function DashboardPage() {
               </div>
             </div>
             <div className="flex items-center space-x-2">
+<<<<<<< HEAD
+              <Link href="/announcements">
+                <AnimatedButton className="bg-primary hover:bg-primary/90">
+                  <Bell className="mr-2 h-4 w-4" />
+                  <span className="hidden sm:inline">Notifications</span>
+                </AnimatedButton>
+              </Link>
+=======
               <AnimatedButton className="bg-primary hover:bg-primary/90">
                 <Bell className="mr-2 h-4 w-4" />
                 <span className="hidden sm:inline">Notifications</span>
               </AnimatedButton>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
             </div>
           </div>
         </FadeIn>
@@ -100,10 +176,23 @@ export function DashboardPage() {
                       </div>
                     </CardHeader>
                     <CardContent>
+<<<<<<< HEAD
+                      {loading ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <>
+                          <div className="text-2xl font-bold">
+                            <AnimatedCounter to={stats.totalResidents} />
+                          </div>
+                          <p className="text-xs text-muted-foreground">+3 from last month</p>
+                        </>
+                      )}
+=======
                       <div className="text-2xl font-bold">
                         <AnimatedCounter to={1247} />
                       </div>
                       <p className="text-xs text-muted-foreground">+3 from last month</p>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                     </CardContent>
                   </Card>
                 </StaggerItem>
@@ -116,10 +205,23 @@ export function DashboardPage() {
                       </div>
                     </CardHeader>
                     <CardContent>
+<<<<<<< HEAD
+                      {loading ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <>
+                          <div className="text-2xl font-bold">
+                            <AnimatedCounter to={stats.pendingPermits} />
+                          </div>
+                          <p className="text-xs text-muted-foreground">+2 since yesterday</p>
+                        </>
+                      )}
+=======
                       <div className="text-2xl font-bold">
                         <AnimatedCounter to={12} />
                       </div>
                       <p className="text-xs text-muted-foreground">+2 since yesterday</p>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                     </CardContent>
                   </Card>
                 </StaggerItem>
@@ -132,10 +234,23 @@ export function DashboardPage() {
                       </div>
                     </CardHeader>
                     <CardContent>
+<<<<<<< HEAD
+                      {loading ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <>
+                          <div className="text-2xl font-bold">
+                            <AnimatedCounter to={stats.upcomingEvents} />
+                          </div>
+                          <p className="text-xs text-muted-foreground">Next: Barangay Assembly</p>
+                        </>
+                      )}
+=======
                       <div className="text-2xl font-bold">
                         <AnimatedCounter to={3} />
                       </div>
                       <p className="text-xs text-muted-foreground">Next: Barangay Assembly</p>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                     </CardContent>
                   </Card>
                 </StaggerItem>
@@ -148,10 +263,23 @@ export function DashboardPage() {
                       </div>
                     </CardHeader>
                     <CardContent>
+<<<<<<< HEAD
+                      {loading ? (
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      ) : (
+                        <>
+                          <div className="text-2xl font-bold">
+                            <AnimatedCounter to={stats.activeIncidents} />
+                          </div>
+                          <p className="text-xs text-muted-foreground">{stats.highPriorityIncidents} high priority</p>
+                        </>
+                      )}
+=======
                       <div className="text-2xl font-bold">
                         <AnimatedCounter to={5} />
                       </div>
                       <p className="text-xs text-muted-foreground">2 high priority</p>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                     </CardContent>
                   </Card>
                 </StaggerItem>
@@ -211,10 +339,19 @@ export function DashboardPage() {
                       </AlertDescription>
                     </Alert>
                     <div className="mt-4">
+<<<<<<< HEAD
+                      <Link href="/emergency">
+                        <AnimatedButton variant="outline" className="w-full group">
+                          View All Alerts
+                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </AnimatedButton>
+                      </Link>
+=======
                       <AnimatedButton variant="outline" className="w-full group">
                         View All Alerts
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </AnimatedButton>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                     </div>
                   </CardContent>
                 </Card>

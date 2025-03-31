@@ -26,6 +26,11 @@ import {
   ChevronLeft,
   ChevronRight,
   HelpCircle,
+<<<<<<< HEAD
+  Info,
+  FileCheck,
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 } from "lucide-react"
 import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
@@ -59,7 +64,11 @@ export default function Sidebar({ className }: SidebarProps) {
     },
     {
       label: "Permits & Clearances",
+<<<<<<< HEAD
+      icon: FileCheck,
+=======
       icon: FileText,
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
       href: "/permits",
       active: pathname === "/permits",
     },
@@ -87,6 +96,40 @@ export default function Sidebar({ className }: SidebarProps) {
       href: "/messages",
       active: pathname === "/messages",
     },
+<<<<<<< HEAD
+  ]
+
+  const helpRoutes = [
+    {
+      label: "Help",
+      icon: HelpCircle,
+      href: "/help",
+      active: pathname === "/help",
+    },
+    {
+      label: "About",
+      icon: Info,
+      href: "/about",
+      active: pathname === "/about",
+    },
+    {
+      label: "License",
+      icon: FileText,
+      href: "/license",
+      active: pathname === "/license",
+    },
+  ]
+
+  // Philippine flag colors animation
+  const flagGradientVariants = {
+    initial: { backgroundPosition: "0% 0%" },
+    animate: {
+      backgroundPosition: "100% 0%",
+      transition: { duration: 20, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" },
+    },
+  }
+
+=======
     {
       label: "Help & About",
       icon: HelpCircle,
@@ -95,6 +138,7 @@ export default function Sidebar({ className }: SidebarProps) {
     },
   ]
 
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
   return (
     <>
       <Sheet open={open} onOpenChange={setOpen}>
@@ -104,17 +148,38 @@ export default function Sidebar({ className }: SidebarProps) {
           </Button>
         </SheetTrigger>
         <SheetContent side="left" className="p-0 pt-10">
+<<<<<<< HEAD
+          <MobileSidebar routes={routes} helpRoutes={helpRoutes} setOpen={setOpen} />
+=======
           <MobileSidebar routes={routes} setOpen={setOpen} />
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
         </SheetContent>
       </Sheet>
 
       {/* Desktop Sidebar */}
+<<<<<<< HEAD
+      <motion.div
+        className={cn(
+          "hidden border-r md:block transition-all duration-300 relative overflow-hidden",
+          isOpen ? "w-64" : "w-20",
+          className,
+        )}
+        variants={flagGradientVariants}
+        initial="initial"
+        animate="animate"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(0,56,168,0.95) 0%, rgba(206,17,38,0.95) 50%, rgba(252,209,22,0.95) 100%)",
+          backgroundSize: "200% 100%",
+        }}
+=======
       <div
         className={cn(
           "hidden border-r bg-sidebar md:block transition-all duration-300 relative",
           isOpen ? "w-64" : "w-20",
           className,
         )}
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
       >
         {/* Toggle Button */}
         <Button
@@ -127,14 +192,27 @@ export default function Sidebar({ className }: SidebarProps) {
         </Button>
 
         <div className="flex h-screen flex-col">
+<<<<<<< HEAD
+          <div
+            className={cn(
+              "flex h-20 items-center border-b border-sidebar-border px-4",
+              isOpen ? "justify-between" : "justify-center",
+            )}
+          >
+=======
           <div className={cn("flex h-20 items-center border-b px-4", isOpen ? "justify-between" : "justify-center")}>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
             {isOpen ? (
               <Link href="/" className="flex items-center gap-3 font-semibold">
                 <motion.div
                   initial={{ rotate: -10 }}
                   animate={{ rotate: 0 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
+<<<<<<< HEAD
+                  className="relative h-12 w-12 overflow-hidden rounded-full bg-white/90 p-1"
+=======
                   className="relative h-12 w-12 overflow-hidden rounded-full"
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                 >
                   <Image
                     src="/images/barangay-seal.png"
@@ -150,13 +228,22 @@ export default function Sidebar({ className }: SidebarProps) {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
+<<<<<<< HEAD
+                  <span className="text-white text-lg font-bold">Barangay Sua</span>
+                  <p className="text-xs text-white/80">San Juan, Southern Leyte</p>
+=======
                   <span className="text-sidebar-foreground text-lg font-bold">Barangay Sua</span>
                   <p className="text-xs text-sidebar-foreground/70">San Juan, Southern Leyte</p>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                 </motion.div>
               </Link>
             ) : (
               <Link href="/" className="flex items-center justify-center">
+<<<<<<< HEAD
+                <div className="relative h-12 w-12 overflow-hidden rounded-full bg-white/90 p-1">
+=======
                 <div className="relative h-12 w-12 overflow-hidden rounded-full">
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                   <Image
                     src="/images/barangay-seal.png"
                     alt="Barangay Sua Official Seal"
@@ -172,14 +259,22 @@ export default function Sidebar({ className }: SidebarProps) {
               <Button
                 variant="ghost"
                 size="icon"
+<<<<<<< HEAD
+                className="text-white hover:text-white hover:bg-white/20"
+=======
                 className="text-sidebar-foreground hover:text-sidebar-foreground hover:bg-sidebar-accent"
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               >
                 {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </Button>
             )}
           </div>
+<<<<<<< HEAD
+          <ScrollArea className="flex-1 bg-black/10">
+=======
           <ScrollArea className="flex-1">
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
             <nav className="grid gap-1 px-2 py-4">
               {routes.map((route, index) => (
                 <motion.div
@@ -191,8 +286,13 @@ export default function Sidebar({ className }: SidebarProps) {
                   <Link href={route.href} onClick={() => setOpen(false)}>
                     <span
                       className={cn(
+<<<<<<< HEAD
+                        "group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-white/20 transition-colors duration-200",
+                        route.active ? "bg-white/30 text-white" : "text-white",
+=======
                         "group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors duration-200",
                         route.active ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground",
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                         !isOpen && "justify-center px-2",
                       )}
                     >
@@ -203,9 +303,52 @@ export default function Sidebar({ className }: SidebarProps) {
                 </motion.div>
               ))}
             </nav>
+<<<<<<< HEAD
+
+            {/* Help & Info Section */}
+            <div className="px-2 py-2">
+              {isOpen && (
+                <motion.h3
+                  className="mb-2 px-3 text-sm font-semibold text-white/80"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  Help & Information
+                </motion.h3>
+              )}
+              <nav className="grid gap-1">
+                {helpRoutes.map((route, index) => (
+                  <motion.div
+                    key={route.href}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.5 + index * 0.05 }}
+                  >
+                    <Link href={route.href} onClick={() => setOpen(false)}>
+                      <span
+                        className={cn(
+                          "group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-white/20 transition-colors duration-200",
+                          route.active ? "bg-white/30 text-white" : "text-white",
+                          !isOpen && "justify-center px-2",
+                        )}
+                      >
+                        <route.icon className={cn("h-5 w-5", isOpen && "mr-3")} />
+                        {isOpen && route.label}
+                      </span>
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+            </div>
+          </ScrollArea>
+          <motion.div
+            className={cn("mt-auto p-4 border-t border-sidebar-border", !isOpen && "flex justify-center")}
+=======
           </ScrollArea>
           <motion.div
             className={cn("mt-auto p-4", !isOpen && "flex justify-center")}
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
@@ -213,7 +356,11 @@ export default function Sidebar({ className }: SidebarProps) {
             <Button
               variant="outline"
               className={cn(
+<<<<<<< HEAD
+                "text-white bg-white/20 hover:bg-white/30 border-white/30 transition-colors duration-200",
+=======
                 "text-sidebar-foreground bg-sidebar-accent hover:bg-sidebar-accent/80 transition-colors duration-200",
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
                 isOpen ? "w-full justify-start" : "w-10 h-10 p-0",
               )}
             >
@@ -222,7 +369,11 @@ export default function Sidebar({ className }: SidebarProps) {
             </Button>
           </motion.div>
         </div>
+<<<<<<< HEAD
+      </motion.div>
+=======
       </div>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     </>
   )
 }
@@ -234,10 +385,23 @@ interface MobileSidebarProps {
     href: string
     active: boolean
   }[]
+<<<<<<< HEAD
+  helpRoutes: {
+    label: string
+    icon: any
+    href: string
+    active: boolean
+  }[]
+  setOpen: (open: boolean) => void
+}
+
+function MobileSidebar({ routes, helpRoutes, setOpen }: MobileSidebarProps) {
+=======
   setOpen: (open: boolean) => void
 }
 
 function MobileSidebar({ routes, setOpen }: MobileSidebarProps) {
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
@@ -247,10 +411,26 @@ function MobileSidebar({ routes, setOpen }: MobileSidebarProps) {
   }, [])
 
   return (
+<<<<<<< HEAD
+    <motion.div
+      className="flex h-full flex-col"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(0,56,168,0.95) 0%, rgba(206,17,38,0.95) 50%, rgba(252,209,22,0.95) 100%)",
+      }}
+    >
+      <div className="flex h-20 items-center border-b border-white/20 px-4">
+        <Link href="/" className="flex items-center gap-3 font-semibold">
+          <div className="relative h-12 w-12 overflow-hidden rounded-full bg-white/90 p-1">
+=======
     <div className="flex h-full flex-col bg-sidebar">
       <div className="flex h-20 items-center border-b px-4">
         <Link href="/" className="flex items-center gap-3 font-semibold">
           <div className="relative h-12 w-12 overflow-hidden rounded-full">
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
             <Image
               src="/images/barangay-seal.png"
               alt="Barangay Sua Official Seal"
@@ -261,21 +441,87 @@ function MobileSidebar({ routes, setOpen }: MobileSidebarProps) {
             />
           </div>
           <div>
+<<<<<<< HEAD
+            <span className="text-white text-lg font-bold">Barangay Sua</span>
+            <p className="text-xs text-white/80">San Juan, Southern Leyte</p>
+=======
             <span className="text-sidebar-foreground text-lg font-bold">Barangay Sua</span>
             <p className="text-xs text-sidebar-foreground/70">San Juan, Southern Leyte</p>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
           </div>
         </Link>
         {mounted && (
           <Button
             variant="ghost"
             size="icon"
+<<<<<<< HEAD
+            className="ml-auto text-white hover:text-white hover:bg-white/20"
+=======
             className="ml-auto text-sidebar-foreground hover:text-sidebar-foreground hover:bg-sidebar-accent"
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
             {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
         )}
       </div>
+<<<<<<< HEAD
+      <ScrollArea className="flex-1 bg-black/10">
+        <nav className="grid gap-1 px-2 py-4">
+          {routes.map((route, index) => (
+            <motion.div
+              key={route.href}
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
+            >
+              <Link href={route.href} onClick={() => setOpen(false)}>
+                <span
+                  className={cn(
+                    "group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-white/20 transition-colors duration-200",
+                    route.active ? "bg-white/30 text-white" : "text-white",
+                  )}
+                >
+                  <route.icon className="mr-3 h-5 w-5" />
+                  {route.label}
+                </span>
+              </Link>
+            </motion.div>
+          ))}
+        </nav>
+
+        {/* Help & Info Section */}
+        <div className="px-2 py-2 border-t border-white/20 mt-2">
+          <h3 className="mb-2 px-3 text-sm font-semibold text-white/80">Help & Information</h3>
+          <nav className="grid gap-1">
+            {helpRoutes.map((route, index) => (
+              <motion.div
+                key={route.href}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.5 + index * 0.05 }}
+              >
+                <Link href={route.href} onClick={() => setOpen(false)}>
+                  <span
+                    className={cn(
+                      "group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-white/20 transition-colors duration-200",
+                      route.active ? "bg-white/30 text-white" : "text-white",
+                    )}
+                  >
+                    <route.icon className="mr-3 h-5 w-5" />
+                    {route.label}
+                  </span>
+                </Link>
+              </motion.div>
+            ))}
+          </nav>
+        </div>
+      </ScrollArea>
+      <div className="mt-auto p-4 border-t border-white/20">
+        <Button
+          variant="outline"
+          className="w-full justify-start text-white bg-white/20 hover:bg-white/30 border-white/30 transition-colors duration-200"
+=======
       <ScrollArea className="flex-1">
         <nav className="grid gap-1 px-2 py-4">
           {routes.map((route) => (
@@ -297,12 +543,17 @@ function MobileSidebar({ routes, setOpen }: MobileSidebarProps) {
         <Button
           variant="outline"
           className="w-full justify-start text-sidebar-foreground bg-sidebar-accent hover:bg-sidebar-accent/80 transition-colors duration-200"
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
         >
           <LogOut className="mr-2 h-4 w-4" />
           Log out
         </Button>
       </div>
+<<<<<<< HEAD
+    </motion.div>
+=======
     </div>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
   )
 }
 

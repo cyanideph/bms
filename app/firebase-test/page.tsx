@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+import type { Metadata } from "next"
+import { FirebaseStatus } from "@/components/firebase-status"
+import { PageTransition } from "@/components/animations/page-transition"
+import { Button } from "@/components/ui/button"
+
+export const metadata: Metadata = {
+  title: "Firebase Test",
+  description: "Test Firebase connection and services",
+=======
 import { FirebaseStatus } from "@/components/firebase-status"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { FileUpload } from "@/components/ui/file-upload"
@@ -6,10 +16,31 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Firebase Test | Barangay Sua Management System",
   description: "Test Firebase connection for Barangay Sua Management System",
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 }
 
 export default function FirebaseTestPage() {
   return (
+<<<<<<< HEAD
+    <PageTransition>
+      <div className="container py-10">
+        <h1 className="text-3xl font-bold mb-6">Firebase Connection Test</h1>
+        <p className="text-muted-foreground mb-8">
+          This page tests the connection to Firebase services and displays their status.
+        </p>
+
+        <div className="grid gap-8">
+          <FirebaseStatus />
+
+          <div className="flex justify-center mt-4">
+            <Button asChild>
+              <a href="/auth/login">Go to Login Page</a>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </PageTransition>
+=======
     <div className="container max-w-4xl py-10">
       <h1 className="mb-6 text-3xl font-bold tracking-tight philippines-text-gradient">Firebase Connection Test</h1>
 
@@ -66,6 +97,7 @@ export default function FirebaseTestPage() {
         </Card>
       </div>
     </div>
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
   )
 }
 

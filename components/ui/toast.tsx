@@ -1,5 +1,8 @@
+<<<<<<< HEAD
+=======
 "use client"
 
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 import * as React from "react"
 import * as ToastPrimitives from "@radix-ui/react-toast"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -17,7 +20,11 @@ const ToastViewport = React.forwardRef<
     ref={ref}
     className={cn(
       "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
+<<<<<<< HEAD
+      className,
+=======
       className
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     )}
     {...props}
   />
@@ -30,18 +37,31 @@ const toastVariants = cva(
     variants: {
       variant: {
         default: "border bg-background text-foreground",
+<<<<<<< HEAD
+        destructive: "destructive group border-destructive bg-destructive text-destructive-foreground",
+=======
         destructive:
           "destructive group border-destructive bg-destructive text-destructive-foreground",
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
       },
     },
     defaultVariants: {
       variant: "default",
     },
+<<<<<<< HEAD
+  },
+=======
   }
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 )
 
 const Toast = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Root>,
+<<<<<<< HEAD
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> & VariantProps<typeof toastVariants>
+>(({ className, variant, ...props }, ref) => {
+  return <ToastPrimitives.Root ref={ref} className={cn(toastVariants({ variant }), className)} {...props} />
+=======
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &
     VariantProps<typeof toastVariants>
 >(({ className, variant, ...props }, ref) => {
@@ -52,6 +72,7 @@ const Toast = React.forwardRef<
       {...props}
     />
   )
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 })
 Toast.displayName = ToastPrimitives.Root.displayName
 
@@ -63,7 +84,11 @@ const ToastAction = React.forwardRef<
     ref={ref}
     className={cn(
       "inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 text-sm font-medium ring-offset-background transition-colors hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group-[.destructive]:border-muted/40 group-[.destructive]:hover:border-destructive/30 group-[.destructive]:hover:bg-destructive group-[.destructive]:hover:text-destructive-foreground group-[.destructive]:focus:ring-destructive",
+<<<<<<< HEAD
+      className,
+=======
       className
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     )}
     {...props}
   />
@@ -78,7 +103,11 @@ const ToastClose = React.forwardRef<
     ref={ref}
     className={cn(
       "absolute right-2 top-2 rounded-md p-1 text-foreground/50 opacity-0 transition-opacity hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 group-[.destructive]:text-red-300 group-[.destructive]:hover:text-red-50 group-[.destructive]:focus:ring-red-400 group-[.destructive]:focus:ring-offset-red-600",
+<<<<<<< HEAD
+      className,
+=======
       className
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     )}
     toast-close=""
     {...props}
@@ -92,11 +121,15 @@ const ToastTitle = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Title>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>
 >(({ className, ...props }, ref) => (
+<<<<<<< HEAD
+  <ToastPrimitives.Title ref={ref} className={cn("text-sm font-semibold", className)} {...props} />
+=======
   <ToastPrimitives.Title
     ref={ref}
     className={cn("text-sm font-semibold", className)}
     {...props}
   />
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 ))
 ToastTitle.displayName = ToastPrimitives.Title.displayName
 
@@ -104,11 +137,15 @@ const ToastDescription = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Description>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description>
 >(({ className, ...props }, ref) => (
+<<<<<<< HEAD
+  <ToastPrimitives.Description ref={ref} className={cn("text-sm opacity-90", className)} {...props} />
+=======
   <ToastPrimitives.Description
     ref={ref}
     className={cn("text-sm opacity-90", className)}
     {...props}
   />
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 ))
 ToastDescription.displayName = ToastPrimitives.Description.displayName
 
@@ -127,3 +164,7 @@ export {
   ToastClose,
   ToastAction,
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5

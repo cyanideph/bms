@@ -1,5 +1,12 @@
 "use client"
 
+<<<<<<< HEAD
+import * as React from "react"
+
+import type { ToastActionElement, ToastProps } from "@/components/ui/toast"
+
+const TOAST_LIMIT = 5
+=======
 // Inspired by react-hot-toast library
 import * as React from "react"
 
@@ -9,6 +16,7 @@ import type {
 } from "@/components/ui/toast"
 
 const TOAST_LIMIT = 1
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
 const TOAST_REMOVE_DELAY = 1000000
 
 type ToasterToast = ToastProps & {
@@ -28,7 +36,11 @@ const actionTypes = {
 let count = 0
 
 function genId() {
+<<<<<<< HEAD
+  count = (count + 1) % Number.MAX_VALUE
+=======
   count = (count + 1) % Number.MAX_SAFE_INTEGER
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
   return count.toString()
 }
 
@@ -45,11 +57,19 @@ type Action =
     }
   | {
       type: ActionType["DISMISS_TOAST"]
+<<<<<<< HEAD
+      toastId?: string
+    }
+  | {
+      type: ActionType["REMOVE_TOAST"]
+      toastId?: string
+=======
       toastId?: ToasterToast["id"]
     }
   | {
       type: ActionType["REMOVE_TOAST"]
       toastId?: ToasterToast["id"]
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
     }
 
 interface State {
@@ -85,9 +105,13 @@ export const reducer = (state: State, action: Action): State => {
     case "UPDATE_TOAST":
       return {
         ...state,
+<<<<<<< HEAD
+        toasts: state.toasts.map((t) => (t.id === action.toast.id ? { ...t, ...action.toast } : t)),
+=======
         toasts: state.toasts.map((t) =>
           t.id === action.toast.id ? { ...t, ...action.toast } : t
         ),
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
       }
 
     case "DISMISS_TOAST": {
@@ -111,7 +135,11 @@ export const reducer = (state: State, action: Action): State => {
                 ...t,
                 open: false,
               }
+<<<<<<< HEAD
+            : t,
+=======
             : t
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
         ),
       }
     }
@@ -192,3 +220,7 @@ function useToast() {
 }
 
 export { useToast, toast }
+<<<<<<< HEAD
+
+=======
+>>>>>>> d654815b261a7f3a423f12d0044308792fa218a5
